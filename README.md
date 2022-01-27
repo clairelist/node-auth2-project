@@ -47,7 +47,7 @@ The endpoints inside `api/users/users-router.js` are built already but check the
 
 #### 2D - Secrets File
 
-Complete the `secrets/index.js` file.
+Complete the `secrets/index.js` file. X
 
 #### Users Schema
 
