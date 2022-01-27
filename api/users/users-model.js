@@ -17,8 +17,16 @@ function find() {
         "role_name": "instructor"
       }
     ]
+    SELECT
+      user_id, username, role_name
+    FROM users
+    JOIN roles ON users.role_id = roles.role_id
    */
+    return db('users')
+    .select('user_id','username','role_name')
+    .join('user_id','users.role_id','roles.role_id');
 }
+
 
 function findBy(filter) {
   /**
@@ -33,6 +41,7 @@ function findBy(filter) {
         "role_name": "admin",
       }
     ]
+    
    */
 }
 
