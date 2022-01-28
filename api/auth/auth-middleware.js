@@ -45,7 +45,11 @@ const only = role_name => (req, res, next) => {
 
     Pull the decoded token from the req object, to avoid verifying it again!
   */
- next();
+ if (role_name === req.decoded.role_name) {
+   next();
+ } else {
+   res.status(403).json({message: 'This is not for you'})
+ }
 }
 
 
@@ -92,6 +96,7 @@ const validateRoleName = (req, res, next) => {
   */
  //we will clear the negative pathes first, to ensure all conditions are checked !
  //remeber future claire, programs are read top to bottm, line by line !
+    
     if (!req.body.role_name || !req.body.role_name.trim()){
       req.role_name = 'student';
       next();
